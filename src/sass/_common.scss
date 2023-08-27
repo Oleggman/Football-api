@@ -6,12 +6,15 @@ body {
 
 .form {
     display: block;
-    width: 800px;
+    position: relative;
+    width: 600px;
     height: 200px;
     margin: 20px auto 30px;
     padding: 20px;
     border-radius: 25px;
-    background: linear-gradient(to right, red, purple);
+    background: tomato;
+    border: 3px solid #333333;
+    gap: 10px;
 }
 
 .container {
@@ -38,9 +41,15 @@ body {
     margin-bottom: 10px;
 }
 
+.player-img {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
 .card-desc {
     padding: 10px;
     background-color: #fff;
+    border-radius: 10px;
 }
 
 .load-more-btn {
@@ -56,4 +65,56 @@ body {
         0 -18px 40px #f00;
     cursor: pointer;
     margin-bottom: 40px;
+}
+
+.player-input {
+    border: 3px solid #433f3f;
+    width: 200px;
+    display: inline-block;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #d0c8bc;
+    border-radius: 4px;
+}
+
+.player-label {
+    font-size: 22px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.label-text {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.clear-btn,
+.search-btn {
+    position: absolute;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    background: #1a1a1a;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.5);
+    border: 2px solid;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-btn {
+    bottom: 20px;
+    right: 20px;
+}
+
+.clear-btn {
+    bottom: 20px;
+    right: 100px;
 }

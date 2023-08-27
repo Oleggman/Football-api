@@ -38,7 +38,7 @@ export default class Render {
     `
     );
 
-    selector.innerHTML = markup;
+    selector.insertAdjacentHTML('beforeend', markup);
   }
 
   resetStart() {

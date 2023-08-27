@@ -9,12 +9,25 @@
   </head>
   <body>
     <form class="form" action="submit">
-      <input type="text" name="player" class="player-input" />
-      <select name="country" class="country-select"></select>
-      <select name="team" class="team-select"></select>
+      <label class="player-label">
+        <span class="label-text">Search player</span>
+        <input
+          id="player"
+          type="text"
+          name="player"
+          class="player-input"
+          required
+          min="2"
+        />
+      </label>
+
+      <!-- <select name="country" class="country-select"></select> -->
+      <!-- <select name="team" class="team-select"></select> -->
       <!-- <select name="position"></select> -->
+      <button class="clear-btn" disabled>Clear</button>
       <button type="submit" class="search-btn">Search</button>
     </form>
+
     <span class="loader"></span>
     <div class="container"></div>
     <button class="load-more-btn">Load more</button>
