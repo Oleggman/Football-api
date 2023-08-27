@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
+    <title>Football service</title>
+    <link href="sass/_common.scss" rel="stylesheet" />
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <select class="season-select"></select>
+    <form class="form" action="submit">
+      <input type="text" name="player" class="player-input" />
+      <select name="country" class="country-select"></select>
+      <select name="team" class="team-select"></select>
+      <!-- <select name="position"></select> -->
+      <button type="submit" class="search-btn">Search</button>
+    </form>
     <span class="loader"></span>
-    <div class="footballer-card"></div>
+    <div class="container"></div>
+    <button class="load-more-btn">Load more</button>
   </body>
 </html>

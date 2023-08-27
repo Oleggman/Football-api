@@ -1,16 +1,31 @@
-const options = {
-  method: 'GET',
-  headers: {
-    'x-rapidapi-host': 'v3.football.api-sports.io',
-    'x-rapidapi-key': '70a77039a6c6b0218e9731d3e6e45266',
-  },
-};
+import Notiflix from 'notiflix';
 
-function fetchSeasons() {
-  return fetch('https://v3.football.api-sports.io/players/seasons', options)
-    .then(res => res.json())
-    .then(data => data.response)
-    .catch(console.log);
+const API_TOKEN =
+  'VOCUtygJttj4dIxWCDsmyRPfHXVf18fMDjAdzYMNGWS4pSkjBebr4oh8L60Q';
+
+function fetchPlayers(player) {
+  return fetch(
+    `https://soccer.sportmonks.com/api/v2.0/players/search/${player}?api_token=${API_TOKEN}`
+  )
+    .then(r => r.json())
+    .then(obj => {
+      if (!obj.data.length) {
+        throw new Error(`Player ${player} was not found.`);
+      }
+      return obj.data;
+    })
+    .catch(error => Notiflix.Notify.failure(error.message));
 }
 
-export { fetchSeasons };
+function fetchCountries() {
+  return fetch(
+    `https://soccer.sportmonks.com/api/v2.0/countries?api_token=${API_TOKEN}`
+  )
+    .then(r => r.json())
+    .then(obj => obj.data)
+    .catch(error => Notiflix.Notify.failure(error.message));
+}
+
+function fetchTeams() {}
+
+export { fetchPlayers, fetchCountries };

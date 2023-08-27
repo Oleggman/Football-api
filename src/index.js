@@ -1,15 +1,35 @@
-import { fetchSeasons } from './js/football-services';
+import { fetchPlayers, fetchCountries } from './js/football-services';
+import Render from './js/render';
 
 const refs = {
-  seasonSelect: document.querySelector('.season-select'),
+  form: document.querySelector('.form'),
+  countrySelect: document.querySelector('.country-select'),
+  teamSelect: document.querySelector('.team-select'),
+  container: document.querySelector('.container'),
+  loadBtn: document.querySelector('.load-more-btn'),
 };
 
-fetchSeasons().then(renderSeasonSelect);
+let players = [];
+const render = new Render();
 
-function renderSeasonSelect(data) {
-  const markup = data.map(
-    season => `<option value="${season}">${season}</option>`
-  );
+fetchCountries()
+  .then(data => render.renderCountrySelect(data, refs.countrySelect))
+  .catch(console.log);
 
-  refs.seasonSelect.innerHTML = markup;
+refs.form.addEventListener('submit', onSearch);
+refs.loadBtn.addEventListener('click', () =>
+  render.renderPlayers(players, refs.container)
+);
+
+function onSearch(evt) {
+  evt.preventDefault();
+  refs.container.innerHTML = '';
+  render.resetStart();
+
+  fetchPlayers(evt.target.elements.player.value)
+    .then(data => {
+      players = data;
+      render.renderPlayers(data, refs.container);
+    })
+    .catch(console.log);
 }
