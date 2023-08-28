@@ -17,15 +17,4 @@ function fetchPlayers(player) {
     .catch(error => Notiflix.Notify.failure(error.message));
 }
 
-function fetchCountries() {
-  return fetch(
-    `https://soccer.sportmonks.com/api/v2.0/countries?api_token=${API_TOKEN}`
-  )
-    .then(r => r.json())
-    .then(obj => obj.data)
-    .catch(error => Notiflix.Notify.failure(error.message));
-}
-
-function fetchTeams() {}
-
-export { fetchPlayers, fetchCountries };
+export { fetchPlayers };

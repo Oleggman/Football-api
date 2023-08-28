@@ -7,10 +7,6 @@ let currentPLayer = '';
 const render = new Render();
 refs.loadBtn.style.display = 'none';
 
-// fetchCountries()
-//   .then(data => render.renderCountrySelect(data, refs.countrySelect))
-//   .catch(console.log);
-
 refs.clearBtn.addEventListener('click', onClear);
 refs.form.addEventListener('submit', onSearch);
 refs.loadBtn.addEventListener('click', onLoad);

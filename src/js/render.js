@@ -32,16 +32,6 @@ export default class Render {
     return this.start;
   }
 
-  //   renderCountrySelect(data, selector) {
-  //     const markup = data.map(
-  //       ({ name }) => `
-  //         <option value="${name}">${name}</option>
-  //     `
-  //     );
-
-  //     selector.insertAdjacentHTML('beforeend', markup);
-  //   }
-
   resetStart() {
     this.start = 0;
   }
