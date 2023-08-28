@@ -1,23 +1,15 @@
 import { fetchPlayers, fetchCountries } from './js/football-services';
 import Render from './js/render';
-
-const refs = {
-  form: document.querySelector('.form'),
-  countrySelect: document.querySelector('.country-select'),
-  //   teamSelect: document.querySelector('.team-select'),
-  container: document.querySelector('.container'),
-  loadBtn: document.querySelector('.load-more-btn'),
-  clearBtn: document.querySelector('.clear-btn'),
-};
+import { refs } from './js/refs';
 
 let players = [];
 let currentPLayer = '';
 const render = new Render();
 refs.loadBtn.style.display = 'none';
 
-fetchCountries()
-  .then(data => render.renderCountrySelect(data, refs.countrySelect))
-  .catch(console.log);
+// fetchCountries()
+//   .then(data => render.renderCountrySelect(data, refs.countrySelect))
+//   .catch(console.log);
 
 refs.clearBtn.addEventListener('click', onClear);
 refs.form.addEventListener('submit', onSearch);
@@ -29,20 +21,14 @@ function onSearch(evt) {
     return;
   }
   refs.loadBtn.style.display = 'none';
+  refs.loader.classList.remove('hidden');
 
   refs.container.innerHTML = '';
   render.resetStart();
   currentPLayer = evt.target.elements.player.value;
 
   fetchPlayers(evt.target.elements.player.value)
-    .then(data => {
-      players = data;
-      render.renderPlayers(data, refs.container);
-
-      if (data.length > 20) {
-        refs.loadBtn.style.display = 'block';
-      }
-    })
+    .then(onFetchPlayers)
     .catch(console.log);
 }
 
@@ -57,4 +43,15 @@ function onClear() {
   refs.container.innerHTML = '';
   refs.loadBtn.style.display = 'none';
   currentPLayer = '';
+}
+
+function onFetchPlayers(data) {
+  players = data;
+  refs.loader.classList.add('hidden');
+
+  render.renderPlayers(data, refs.container);
+
+  if (data.length > 20) {
+    refs.loadBtn.style.display = 'block';
+  }
 }
