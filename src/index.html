@@ -8,7 +8,7 @@
     <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <form class="form" action="submit">
+    <form id="form" class="form" action="submit">
       <label class="player-label">
         <span class="label-text">Search player</span>
         <input
@@ -24,12 +24,14 @@
       <!-- <select name="country" class="country-select"></select> -->
       <!-- <select name="team" class="team-select"></select> -->
       <!-- <select name="position"></select> -->
-      <button class="clear-btn" disabled>Clear</button>
       <button type="submit" class="search-btn">Search</button>
+      <button type="button" class="clear-btn">Clear</button>
     </form>
 
     <span class="loader"></span>
     <div class="container"></div>
     <button class="load-more-btn">Load more</button>
+    <a href="#"></a>
+    <a class="scroll-btn" href="#form">On top</a>
   </body>
 </html>

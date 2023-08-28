@@ -29,6 +29,7 @@ export default class Render {
 
     selector.insertAdjacentHTML('beforeend', markup);
     this.start += 20;
+    return this.start;
   }
 
   renderCountrySelect(data, selector) {

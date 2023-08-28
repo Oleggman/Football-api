@@ -1,5 +1,9 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #6f81a1;
 }
@@ -84,6 +88,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    transform: translateX(85%);
 }
 
 .label-text {
@@ -116,5 +121,24 @@ body {
 
 .clear-btn {
     bottom: 20px;
-    right: 100px;
+    left: 20px;
+        
+}
+
+.scroll-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    background: #1a1a1a;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+        0 0 10px rgba(255, 255, 255, 0.5);
+    border: 2px solid;
+    border-radius: 4px;
+    cursor: pointer;
 }
